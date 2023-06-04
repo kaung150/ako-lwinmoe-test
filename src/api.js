@@ -1,55 +1,85 @@
-export const getComments = async () => {
-  return [
-    {
-      id: "1",
-      body: "Nice one haha",
-      username: "Kaung Min Khant",
-      userId: "1",
-      parentId: null,
-      createdAt: "2023-06-16T23:00:33.010+02:00",
-    },
-    {
-      id: "2",
-      body: "funny one",
-      username: "The real deal",
-      userId: "2",
-      parentId: null,
-      createdAt: "2023-06-16T23:00:33.010+02:00",
-    },
-    {
-      id: "3",
-      body: "First comment first child",
-      username: "The real deal",
-      userId: "2",
-      parentId: "1",
-      createdAt: "2023-06-16T23:00:33.010+02:00",
-    },
-    {
-      id: "4",
-      body: "Second comment second child",
-      username: "The real deal",
-      userId: "2",
-      parentId: "2",
-      createdAt: "2023-06-16T23:00:33.010+02:00",
-    },
-  ];
-};
-
-export const createComment = async (text, parentId = null) => {
-  return {
-    id: Math.random().toString(36).substr(2, 9),
-    body: text,
-    parentId,
-    userId: "1",
-    username: "John",
-    createdAt: new Date().toISOString(),
-  };
-};
-
-export const updateComment = async (text) => {
-  return { text };
-};
-
-export const deleteComment = async () => {
-  return {};
-};
+export const api = [
+  {
+    formName: "Enter your name",
+    placeholder: "eg Mg Mg",
+    isRequired: true,
+    type: "input",
+    value: "",
+    isHidden: false,
+    isAction: false,
+    options: [],
+  },
+  {
+    formName: "Gender",
+    placeholder: "",
+    isRequired: true,
+    type: "radio",
+    value: "",
+    isAction: false,
+    isHidden: false,
+    options: [
+      {
+        title: "Male",
+        value: "male",
+      },
+      {
+        title: "Female",
+        value: "female",
+      },
+    ],
+  },
+  {
+    formName: "City",
+    placeholder: "Choose your city",
+    isRequired: true,
+    type: "selectbox",
+    value: "",
+    isAction: false,
+    isHidden: false,
+    options: [
+      {
+        title: "Yangon",
+        value: "YGN",
+      },
+      {
+        title: "Mandlay",
+        value: "MDY",
+      },
+      {
+        title: "TaunGyi",
+        value: "TG",
+      },
+    ],
+  },
+  {
+    formName: "Enter Phone Number",
+    placeholder: "+959420xxxx",
+    isRequired: true,
+    type: "phoneinput",
+    value: "",
+    isAction: true,
+    isHidden: false,
+    options: [],
+    callbackUrl: "test.com/checkphonenumber",
+  },
+  {
+    formName: "Note",
+    placeholder: "Enter note",
+    isRequired: false,
+    type: "textarea",
+    value: "",
+    isAction: false,
+    isHidden: false,
+    options: [],
+  },
+  {
+    formName: "Submit",
+    placeholder: "",
+    isRequired: false,
+    type: "submit",
+    value: "",
+    isAction: false,
+    isHidden: false,
+    options: [],
+  },
+];
