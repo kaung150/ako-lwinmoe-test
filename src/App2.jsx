@@ -102,7 +102,7 @@ const App2 = () => {
     const payload = {
       name: nameRef.current.value,
       radio: radioRef.current.value,
-      select: selectRef.current.value,
+      city: selectRef.current.value,
       phone: phoneRef.current.value,
       textarea: bodyRef.current.value,
     };
