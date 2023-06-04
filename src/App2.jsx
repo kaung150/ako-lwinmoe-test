@@ -101,7 +101,7 @@ const App2 = () => {
     e.preventDefault();
     const payload = {
       name: nameRef.current.value,
-      radio: radioRef.current.value,
+      gender: radioRef.current.value,
       city: selectRef.current.value,
       phone: phoneRef.current.value,
       textarea: bodyRef.current.value,
