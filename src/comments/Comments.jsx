@@ -10,9 +10,12 @@ const Comments = ({ currentUserId }) => {
   );
 
   const getReplies = (commentId) => {
-    return backendComments.filter(
-      (backendComment) => backendComment.parentId === commentId
-    );
+    return backendComments
+      .filter((backendComment) => backendComment.parentId === commentId)
+      .sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      );
   };
 
   console.log(backendComments);
@@ -27,7 +30,11 @@ const Comments = ({ currentUserId }) => {
     <div>
       <h3 className=" text-xl font-semibold mt-5 mb-3">Comments</h3>
       {rootComments.map((rootComment) => (
-        <Comment key={rootComment.id} comment={rootComment} />
+        <Comment
+          key={rootComment.id}
+          comment={rootComment}
+          replies={getReplies(rootComment.id)}
+        />
       ))}
     </div>
   );
